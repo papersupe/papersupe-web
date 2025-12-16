@@ -93,6 +93,10 @@ nav strong {
   box-shadow: 0 10px 28px rgba(30, 43, 255, 0.45);
 }
 
+.agent-btn::after {
+  display: none;
+}
+
 /* Accessibility */
 .nav-links a:focus-visible,
 .agent-btn:focus-visible {
