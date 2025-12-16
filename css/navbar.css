@@ -32,6 +32,11 @@ nav strong {
 }
 
 /* Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
 .nav-links a {
   margin-left: 28px;
   font-weight: 500;
