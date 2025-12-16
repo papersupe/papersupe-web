@@ -1,0 +1,29 @@
+nav {
+position: sticky;
+top: 0;
+z-index: 100;
+background: white;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 8%;
+}
+
+
+.nav-links a {
+margin-left: 28px;
+font-weight: 500;
+}
+
+
+.agent-btn {
+width: 40px;
+height: 40px;
+background: var(--blue-primary);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+font-weight: 600;
+}
