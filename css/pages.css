@@ -1,0 +1,19 @@
+.page-header {
+max-width: 700px;
+}
+
+
+.card-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 24px;
+margin-top: 40px;
+}
+
+
+.card {
+background: white;
+padding: 28px;
+border-radius: var(--radius-lg);
+box-shadow: var(--shadow-soft);
+}
