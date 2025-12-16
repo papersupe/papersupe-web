@@ -1,20 +1,96 @@
+/* =========================
+   HERO — ENHANCED (SCOPED)
+========================= */
+
 .hero {
-display: grid;
-grid-template-columns: 1.2fr 1fr;
-align-items: center;
-gap: 60px;
+  min-height: calc(100vh - 90px);
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: center;
+  gap: 80px;
 }
 
+/* Content */
+
+.hero-content {
+  max-width: 620px;
+}
+
+.hero-tag {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 999px;
+  background: rgba(30, 43, 255, 0.08);
+  color: var(--blue-primary);
+}
 
 .hero h1 {
-font-size: 3.2rem;
+  font-size: 3.4rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
+.hero h1 .accent {
+  color: var(--blue-primary);
+}
 
 .hero p {
-margin: 24px 0;
-font-size: 1.05rem;
-opacity: 0.85;
+  margin-top: 24px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* Actions */
+
+.hero-actions {
+  margin-top: 36px;
+  display: flex;
+  gap: 14px;
+}
+
+.btn.primary {
+  background: var(--blue-primary);
+}
+
+.btn.secondary {
+  background: var(--black);
+}
+
+/* Visual (Right Side) */
+
+.hero-visual {
+  position: relative;
+  height: 260px;
+}
+
+.signal {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(30,43,255,0.18),
+    rgba(30,43,255,0.02)
+  );
+  top: 20%;
+  left: 20%;
+}
+
+.signal.small {
+  width: 80px;
+  height: 80px;
+  top: 55%;
+  left: 55%;
+  background: radial-gradient(
+    circle,
+    rgba(30,43,255,0.22),
+    rgba(30,43,255,0.04)
+  );
 }
 
 
