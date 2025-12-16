@@ -1,0 +1,23 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+body {
+font-family: 'Poppins', sans-serif;
+background: var(--white);
+color: var(--black);
+}
+
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+
+section {
+padding: 80px 8%;
+}
