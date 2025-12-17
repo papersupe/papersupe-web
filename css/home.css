@@ -102,3 +102,46 @@ color: white;
 display: inline-block;
 margin-right: 12px;
 }
+
+/* =========================
+   HERO — MOBILE OPTIMIZATION
+========================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    min-height: auto;
+    padding-top: 60px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+    line-height: 1.15;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Hide decorative visuals on mobile */
+  .hero-visual {
+    display: none;
+  }
+}
+
