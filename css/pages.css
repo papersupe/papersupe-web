@@ -67,6 +67,39 @@ box-shadow: var(--shadow-soft);
 
 /* Subtle research-grade interaction */
 
+/* =========================
+   RESEARCH CARDS — MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .research-header h1 {
+    font-size: 2rem;
+  }
+
+  .research-header p {
+    font-size: 1rem;
+  }
+
+  .research-grid {
+    gap: 18px;
+  }
+
+  .research-card {
+    padding: 24px;
+  }
+
+  .research-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .research-card p {
+    font-size: 0.95rem;
+  }
+}
+
+
+
 .research-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.08);
