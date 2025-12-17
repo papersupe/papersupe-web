@@ -1,23 +1,50 @@
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+/* =========================
+   GLOBAL RESET
+========================= */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
-font-family: 'Poppins', sans-serif;
-background: var(--white);
-color: var(--black);
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* =========================
+   ELEMENT DEFAULTS
+========================= */
 
 a {
-text-decoration: none;
-color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+   SECTION LAYOUT
+========================= */
 
 section {
-padding: 80px 8%;
+  padding: 80px 8%;
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 6%;
+  }
 }
