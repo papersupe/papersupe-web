@@ -41,3 +41,22 @@ if (toggle && navLinks) {
     navLinks.classList.toggle('open');
   });
 }
+
+
+// Enable swipe hint (mobile)
+document.querySelectorAll('.research-grid').forEach(grid => {
+  let startX = 0;
+
+  grid.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  grid.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    if (Math.abs(startX - endX) > 50) {
+      grid.style.cursor = 'grabbing';
+      setTimeout(() => grid.style.cursor = 'default', 300);
+    }
+  });
+});
+
