@@ -1,5 +1,5 @@
 /* =========================
-   NAVBAR
+          NAVBAR
 ========================= */
 
 nav {
@@ -17,21 +17,36 @@ nav {
   transition: box-shadow 0.25s ease;
 }
 
-/* Constrain visual width naturally */
-nav > strong,
-.nav-links {
-  display: flex;
-  align-items: center;
+/* Optional scroll elevation */
+nav.scrolled {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* Brand */
-nav strong {
+/* =========================
+   BRAND
+========================= */
+
+.nav-brand {
+  display: flex;
+  align-items: center;
   font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--black);
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* Links */
+.nav-brand:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -46,7 +61,7 @@ nav strong {
   transition: opacity 0.2s ease;
 }
 
-/* Subtle underline on hover */
+/* Subtle underline */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -66,7 +81,10 @@ nav strong {
   width: 100%;
 }
 
-/* Agent Circle Button */
+/* =========================
+   AGENT BUTTON
+========================= */
+
 .agent-btn {
   width: 40px;
   height: 40px;
@@ -87,25 +105,30 @@ nav strong {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Agent = system entry, not link */
-.agent-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(30, 43, 255, 0.45);
+@media (hover: hover) and (pointer: fine) {
+  .agent-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(30, 43, 255, 0.45);
+  }
 }
 
 .agent-btn::after {
   display: none;
 }
 
-/* Accessibility */
+/* =========================
+   ACCESSIBILITY
+========================= */
+
 .nav-links a:focus-visible,
-.agent-btn:focus-visible {
+.agent-btn:focus-visible,
+.nav-brand:focus-visible {
   outline: 2px solid var(--blue-primary);
   outline-offset: 4px;
 }
 
 /* =========================
-   MOBILE NAVBAR FIX
+   MOBILE NAV
 ========================= */
 
 .nav-toggle {
@@ -115,6 +138,7 @@ nav strong {
   font-size: 1.6rem;
   cursor: pointer;
   margin-left: 16px;
+  transition: transform 0.2s ease;
 }
 
 /* Mobile breakpoint */
@@ -124,7 +148,11 @@ nav strong {
     padding: 16px 6%;
   }
 
-  /* Hide links by default */
+  .nav-brand {
+    font-size: 1.05rem;
+  }
+
+  /* Dropdown */
   .nav-links {
     position: absolute;
     top: 100%;
@@ -143,26 +171,25 @@ nav strong {
     display: none;
   }
 
-  /* Vertical nav links */
   .nav-links a {
     margin: 14px 0;
     font-size: 1rem;
   }
 
-  /* Agent button positioning */
   .agent-btn {
     margin: 20px 0 0;
   }
 
-  /* Show hamburger */
   .nav-toggle {
     display: block;
   }
 
-  /* Open state */
   .nav-links.open {
     display: flex;
   }
+
+  /* Hamburger active state (optional) */
+  .nav-toggle.active {
+    transform: rotate(90deg);
+  }
 }
-
-
