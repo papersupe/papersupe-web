@@ -240,11 +240,17 @@
 }
 
 /* Description */
+/* Clamp description to 3 lines */
 .news-card p {
   margin-top: 14px;
   font-size: 0.95rem;
   opacity: 0.75;
   line-height: 1.6;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Link */
