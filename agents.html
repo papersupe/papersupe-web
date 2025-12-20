@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="css/pages.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <title>Agent Circle — PaperSupe</title>
 </head>
 <body>
+
 <nav>
-<a href="index.html" class="nav-brand"><strong>PaperSupe</strong></a>
+  <a href="index.html" class="nav-brand">PaperSupe</a>
+
   <div class="nav-links">
     <a href="research.html">Research</a>
     <a href="essays.html">Essays</a>
@@ -18,16 +25,111 @@
     <a href="about.html">Know Me</a>
     <a href="agents.html" class="agent-btn">○</a>
   </div>
- <button class="nav-toggle" aria-label="Toggle navigation">
-  ☰
-</button>
 
+  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
 </nav>
-<section>
-<h1>Agent Circle</h1>
-<p>We're building agentic AI systems that read papers, connect concepts, and assist research workflows.
-<br><br><em>Cooking intelligence here.</em></p>
+
+<section class="agent">
+  <header class="page-header">
+    <h1>Agent Circle</h1>
+    <p>
+      Agent Circle is PaperSupe’s experimental environment for a
+      <strong>single agentic AI system</strong> designed to reason over research,
+      connect ideas across papers, and assist advanced research workflows.
+    </p>
+  </header>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <h3>Research Reading</h3>
+      <p>
+        The agent reads academic papers, extracts core arguments,
+        and builds conceptual summaries beyond surface-level abstracts.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Concept Mapping</h3>
+      <p>
+        The agent links ideas across domains—connecting models,
+        assumptions, methods, and theoretical frameworks.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Workflow Assistance</h3>
+      <p>
+        The agent supports literature review, hypothesis formation,
+        and iterative research exploration.
+      </p>
+    </div>
+
+    </div>
+
+  <!-- Agent Status -->
+  <div class="card" style="margin-top: 48px;">
+    <h3>Agent Status</h3>
+    <p>
+      <strong>Status:</strong>
+      <span style="color: var(--blue-primary); font-weight: 600;">
+        Experimental · Reading-Only
+      </span>
+    </p>
+    <p style="margin-top: 10px; opacity: 0.8;">
+      The agent can analyze and reason over research papers,
+      but does not yet accept live queries or execute actions.
+    </p>
+  </div>
+
+  <!-- Ask the Agent -->
+  <div class="card" style="margin-top: 24px;">
+    <h3>Ask the Agent</h3>
+    <p style="opacity: 0.8; margin-bottom: 14px;">
+      This interface will allow direct research questions
+      grounded in PaperSupe’s research corpus.
+    </p>
+
+    <input
+      type="text"
+      placeholder="Ask a research question (coming soon)"
+      disabled
+      style="
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(0,0,0,0.1);
+        font-family: inherit;
+        opacity: 0.6;
+        cursor: not-allowed;
+      "
+    />
+
+    <p style="margin-top: 12px; font-size: 0.85rem; opacity: 0.6;">
+      The agent will eventually answer questions by reasoning
+      directly over research domains listed in
+      <a href="research.html" style="text-decoration: underline;">
+        Research
+      </a>.
+    </p>
+  </div>
+
+  <p style="margin-top: 40px; opacity: 0.7;">
+    <em>
+      Agent Circle evolves alongside PaperSupe’s research foundation.
+      Capabilities expand only when grounded in understanding.
+    </em>
+  </p>
+
+
+  <p style="margin-top: 40px; opacity: 0.7;">
+    <em>
+      Agent Circle is under active development.  
+      Capabilities will expand incrementally as the system matures.
+    </em>
+  </p>
 </section>
+
 <script src="js/main.js"></script>
 </body>
 </html>
