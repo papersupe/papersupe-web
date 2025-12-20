@@ -8,10 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!list || !data.results) return;
 
       data.results.forEach(article => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${article.title}</strong>`;
-        list.appendChild(li);
-      });
-    })
-    .catch(err => console.error(err));
+  const card = document.createElement('article');
+  card.className = 'news-card';
+
+  card.innerHTML = `
+    <span class="news-source">${article.source_id || 'AI News'}</span>
+    <h3>${article.title}</h3>
+    <p>${article.description || 'Click to read full article.'}</p>
+    <a href="${article.link}" target="_blank">Read →</a>
+  `;
+
+  list.appendChild(card);
 });
