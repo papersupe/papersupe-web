@@ -15,9 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="news-source">${article.source_id || 'AI News'}</span>
           <h3>${article.title}</h3>
           <p>${article.description || 'Click to read full article.'}</p>
-          <a href="${article.link}" target="_blank" rel="noopener">
-            Read →
-          </a>
+
+          <button class="news-expand"
+            data-title="${article.title}"
+            data-source="${article.source_id || 'AI News'}"
+            data-description="${article.description || ''}"
+            data-link="${article.link}">
+            Read more
+          </button>
+
         `;
 
         list.appendChild(card);
