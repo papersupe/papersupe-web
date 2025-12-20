@@ -282,3 +282,68 @@
     padding: 22px;
   }
 }
+
+/* =========================
+   NEWS MODAL (SECONDARY SCREEN)
+========================= */
+
+.news-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.news-modal.open {
+  display: flex;
+}
+
+.news-modal-content {
+  background: white;
+  max-width: 640px;
+  width: 90%;
+  padding: 36px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.news-modal-content h2 {
+  margin-top: 10px;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.news-modal-content p {
+  margin-top: 18px;
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.news-modal-content a {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--blue-primary);
+  font-weight: 500;
+}
+
+/* Close button */
+.news-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.news-modal-close:hover {
+  opacity: 1;
+}
+
+
