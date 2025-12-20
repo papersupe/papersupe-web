@@ -8,15 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!list || !data.results) return;
 
       data.results.forEach(article => {
-  const card = document.createElement('article');
-  card.className = 'news-card';
+        const card = document.createElement('article');
+        card.className = 'news-card';
 
-  card.innerHTML = `
-    <span class="news-source">${article.source_id || 'AI News'}</span>
-    <h3>${article.title}</h3>
-    <p>${article.description || 'Click to read full article.'}</p>
-    <a href="${article.link}" target="_blank">Read →</a>
-  `;
+        card.innerHTML = `
+          <span class="news-source">${article.source_id || 'AI News'}</span>
+          <h3>${article.title}</h3>
+          <p>${article.description || 'Click to read full article.'}</p>
+          <a href="${article.link}" target="_blank" rel="noopener">
+            Read →
+          </a>
+        `;
 
-  list.appendChild(card);
+        list.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error('News fetch failed:', err);
+    });
 });
