@@ -11,31 +11,29 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       if (!data.items) return;
 
-      data.items.forEach(item => {
+      data.items.slice(0, 6).forEach(item => {
         const card = document.createElement('article');
-        card.className = 'card research-card';
+        card.className = 'essay-card';
 
         card.innerHTML = `
+          <span class="essay-meta">Medium Essay</span>
           <h3>${item.title}</h3>
-          <p>${stripHtml(item.description).slice(0, 160)}…</p>
-          <div class="research-meta">
-            Published on Medium
-          </div>
+          <p>${stripHtml(item.description)}</p>
+          <a href="${item.link}" target="_blank" rel="noopener">
+            Read on Medium →
+          </a>
         `;
-
-        card.addEventListener('click', () => {
-          window.open(item.link, '_blank');
-        });
 
         container.appendChild(card);
       });
     })
     .catch(err => {
       console.error('Medium RSS error:', err);
+      container.innerHTML = '<p>Unable to load essays.</p>';
     });
 });
 
-/* Remove HTML tags from Medium descriptions */
+/* Remove HTML tags safely */
 function stripHtml(html) {
   const div = document.createElement('div');
   div.innerHTML = html;
