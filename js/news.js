@@ -57,3 +57,25 @@ document.getElementById('closeModal')?.addEventListener('click', () => {
 });
 
 });
+
+
+document.addEventListener('click', e => {
+  if (!e.target.classList.contains('news-expand')) return;
+
+  document.getElementById('panelTitle').textContent =
+    e.target.dataset.title;
+
+  document.getElementById('panelContent').textContent =
+    e.target.dataset.description;
+
+  const link = document.getElementById('panelLink');
+  link.href = e.target.dataset.link;
+  link.textContent = 'Read original article →';
+
+  document.getElementById('sidePanel').classList.add('open');
+});
+
+document.getElementById('closePanel')?.addEventListener('click', () => {
+  document.getElementById('sidePanel').classList.remove('open');
+});
+
