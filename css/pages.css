@@ -347,3 +347,80 @@
 }
 
 
+/* =========================
+   SIDE PANEL (GLOBAL)
+========================= */
+
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  height: 100vh;
+  background: white;
+  box-shadow: -20px 0 40px rgba(0,0,0,0.12);
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  transition: right 0.35s ease;
+}
+
+.side-panel.open {
+  right: 0;
+}
+
+/* Header */
+.side-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 22px 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.side-panel-header h2 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.side-panel-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.side-panel-close:hover {
+  opacity: 1;
+}
+
+/* Content */
+.side-panel-content {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.side-panel-content p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.side-panel-content a {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--blue-primary);
+  font-weight: 500;
+}
+
+/* Mobile behavior */
+@media (max-width: 768px) {
+  .side-panel {
+    width: 100%;
+    right: -100%;
+  }
+}
+
