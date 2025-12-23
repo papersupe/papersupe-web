@@ -426,7 +426,7 @@
 
 
 /* =========================
-   ABOUT PAGE
+   ABOUT — PAPER SUPE THEME
 ========================= */
 
 .about {
@@ -437,110 +437,122 @@
 /* Hero */
 
 .about-hero {
-  max-width: 700px;
-  margin-bottom: 60px;
+  max-width: 720px;
+  margin-bottom: 70px;
+}
+
+.about-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue-primary);
+  font-weight: 600;
 }
 
 .about-hero h1 {
-  font-size: 2.6rem;
+  margin-top: 10px;
+  font-size: 2.7rem;
   letter-spacing: -0.03em;
 }
 
-.about-subtitle {
-  margin-top: 10px;
+.about-hero p {
+  margin-top: 14px;
   font-size: 1.05rem;
-  opacity: 0.75;
+  line-height: 1.7;
+  opacity: 0.8;
 }
 
-/* Grid */
+/* Layout */
 
-.about-grid {
+.about-layout {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 32px;
+  gap: 34px;
 }
 
 /* Cards */
 
 .about-card {
-  background: white;
-  padding: 32px;
+  background: linear-gradient(
+    180deg,
+    rgba(30,43,255,0.03),
+    #ffffff
+  );
+  padding: 34px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
 }
 
-.about-card h3 {
-  font-size: 1.2rem;
+.about-card.primary::before {
+  content: "";
+  display: block;
+  height: 4px;
+  width: 60px;
+  background: var(--blue-primary);
+  border-radius: 2px;
   margin-bottom: 16px;
-  letter-spacing: -0.01em;
+}
+
+.about-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
 }
 
 .about-card p {
-  font-size: 0.98rem;
+  font-size: 0.97rem;
   line-height: 1.7;
   opacity: 0.85;
   margin-bottom: 14px;
 }
 
-/* Identity link */
+/* CTA */
 
-.about-link {
+.about-cta {
   display: inline-block;
-  margin-top: 12px;
+  margin-top: 10px;
   font-weight: 500;
   color: var(--blue-primary);
 }
 
-/* Focus list */
+/* Philosophy List */
 
-.about-card ul {
+.about-list {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
 }
 
-.about-card ul li {
-  padding: 8px 0;
+.about-list li {
+  padding: 10px 0;
   font-size: 0.95rem;
   opacity: 0.85;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
-/* Social */
+/* Social Strip */
 
-.social {
-  grid-column: 1 / -1;
-}
-
-.social-links {
+.about-social {
+  margin-top: 60px;
+  padding-top: 26px;
   display: flex;
-  gap: 18px;
+  gap: 22px;
   flex-wrap: wrap;
-  margin-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.08);
 }
 
-.social-links a {
+.about-social a {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--blue-primary);
 }
 
-.social-note {
-  margin-top: 18px;
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
-/* =========================
-   MOBILE
-========================= */
+/* Mobile */
 
 @media (max-width: 768px) {
-
   .about-hero h1 {
     font-size: 2.1rem;
   }
 
-  .about-grid {
+  .about-layout {
     grid-template-columns: 1fr;
   }
 
@@ -548,5 +560,4 @@
     padding: 26px;
   }
 }
-
 
