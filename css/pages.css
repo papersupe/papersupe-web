@@ -677,30 +677,66 @@
 
 
 /* =========================
-   PAGE TAG — ABOUT STYLE
+   PAGE HEADER — HERO STYLE
 ========================= */
 
-.page-tag-wrap {
-  max-width: 1100px;
-  margin: 32px auto 8px;
+.page-header {
+  max-width: 720px;
+  margin: 0 auto 64px;
   padding: 0 8%;
 }
 
-.page-tag {
-  display: inline-block;
+/* Tag wrapper (keeps spacing clean) */
+.page-tag-wrap {
+  margin-bottom: 10px;
+}
 
+/* Tag itself */
+.page-tag {
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 600;
-
   color: var(--blue-primary);
 }
 
-/* MOBILE */
+/* Title */
+.page-header h1 {
+  font-size: 2.7rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* Optional paragraph */
+.page-header p {
+  margin-top: 14px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+/* Accent divider */
+.page-header::after {
+  content: "";
+  display: block;
+  margin-top: 28px;
+  width: 48px;
+  height: 3px;
+  background: var(--blue-primary);
+  border-radius: 999px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 768px) {
-  .page-tag-wrap {
+  .page-header {
     padding: 0 6%;
-    margin-top: 24px;
+    margin-bottom: 48px;
+  }
+
+  .page-header h1 {
+    font-size: 2.1rem;
   }
 }
