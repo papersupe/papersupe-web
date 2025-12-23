@@ -674,3 +674,56 @@
   }
 }
 
+
+/* =========================
+   BRAND STRIP (GLOBAL)
+========================= */
+
+.brand-strip {
+  padding: 64px 8% 24px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.brand-strip h1 {
+  font-size: 2.4rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.brand-strip h1 span {
+  color: var(--black);
+  opacity: 0.85;
+}
+
+.brand-strip .accent {
+  color: var(--blue-primary);
+}
+
+/* Subtle divider */
+.brand-strip::after {
+  content: "";
+  display: block;
+  margin-top: 32px;
+  width: 60px;
+  height: 3px;
+  background: var(--blue-primary);
+  border-radius: 999px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .brand-strip {
+    padding: 48px 6% 20px;
+  }
+
+  .brand-strip h1 {
+    font-size: 1.9rem;
+  }
+}
+
+
