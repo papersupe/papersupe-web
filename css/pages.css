@@ -424,3 +424,129 @@
   }
 }
 
+
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.about {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Hero */
+
+.about-hero {
+  max-width: 700px;
+  margin-bottom: 60px;
+}
+
+.about-hero h1 {
+  font-size: 2.6rem;
+  letter-spacing: -0.03em;
+}
+
+.about-subtitle {
+  margin-top: 10px;
+  font-size: 1.05rem;
+  opacity: 0.75;
+}
+
+/* Grid */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+}
+
+/* Cards */
+
+.about-card {
+  background: white;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.about-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.about-card p {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  opacity: 0.85;
+  margin-bottom: 14px;
+}
+
+/* Identity link */
+
+.about-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 500;
+  color: var(--blue-primary);
+}
+
+/* Focus list */
+
+.about-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-card ul li {
+  padding: 8px 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Social */
+
+.social {
+  grid-column: 1 / -1;
+}
+
+.social-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.social-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--blue-primary);
+}
+
+.social-note {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .about-hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    padding: 26px;
+  }
+}
+
+
