@@ -177,6 +177,119 @@
   }
 }
 
+/* =========================
+   RESEARCH — VISUAL UPGRADE
+========================= */
+
+.research-card {
+  background: linear-gradient(
+    180deg,
+    rgba(30,43,255,0.03),
+    #ffffff
+  );
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+/* Accent bar */
+.research-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: var(--blue-primary);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.research-meta {
+  align-self: flex-start;
+  margin-top: 20px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: rgba(30,43,255,0.08);
+  color: var(--blue-primary);
+}
+
+/* =========================
+   ESSAYS — MEDIUM FEED
+========================= */
+
+#essays {
+  margin-top: 50px;
+}
+
+.essay-card {
+  background: white;
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+/* Accent */
+.essay-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--blue-primary),
+    rgba(30,43,255,0.3)
+  );
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.essay-meta {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-primary);
+  font-weight: 600;
+}
+
+.essay-card h3 {
+  margin-top: 10px;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.essay-card p {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.8;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.essay-card a {
+  display: inline-block;
+  margin-top: 18px;
+  font-weight: 500;
+  color: var(--blue-primary);
+}
+
+@media (hover: hover) {
+  .essay-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+  }
+}
+
+
 
 /* =========================
    AI NEWS — CARDS (SCOPED)
