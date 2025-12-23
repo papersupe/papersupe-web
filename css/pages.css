@@ -674,6 +674,20 @@
   }
 }
 
+/* =========================
+   GITHUB ACTIVITY
+========================= */
+
+.github-activity {
+  margin-top: 80px;
+}
+
+.github-activity h2 {
+  font-size: 1.4rem;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
 
 
 /* =========================
