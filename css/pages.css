@@ -677,13 +677,17 @@
 
 
 /* =========================
-   PAGE TAG (ABOUT-HERO STYLE)
+   PAGE TAG — ABOUT STYLE
 ========================= */
 
-.page-tag {
+.page-tag-wrap {
   max-width: 1100px;
-  margin: 28px auto 12px;
+  margin: 32px auto 8px;
   padding: 0 8%;
+}
+
+.page-tag {
+  display: inline-block;
 
   font-size: 0.7rem;
   letter-spacing: 0.14em;
@@ -695,21 +699,8 @@
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .page-tag {
+  .page-tag-wrap {
     padding: 0 6%;
-    margin-top: 22px;
+    margin-top: 24px;
   }
 }
-
-
-.page-tag::after {
-  content: "";
-  display: block;
-  margin-top: 10px;
-  width: 36px;
-  height: 2px;
-  background: var(--blue-primary);
-  opacity: 0.35;
-  border-radius: 999px;
-}
-
