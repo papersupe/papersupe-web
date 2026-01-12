@@ -547,36 +547,30 @@
   margin: auto;
 }
 
-.about-subtle {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  opacity: 0.6;
-  font-style: italic;
-}
-
-/* Hero */
+/* =========================
+   HERO
+========================= */
 
 .about-hero {
   max-width: 720px;
-  margin-bottom: 70px;
-}
+  margin-bottom: 72px;
 
-.about-hero {
   position: relative;
-  padding-bottom: 24px;
+  padding-bottom: 28px;
 }
 
+/* Single, intentional divider */
 .about-hero::after {
   content: "";
   display: block;
-  margin-top: 28px;
+  margin-top: 30px;
   width: 56px;
   height: 3px;
   background: var(--blue-primary);
   border-radius: 999px;
 }
 
-
+/* Tag */
 .about-tag {
   font-size: 0.7rem;
   letter-spacing: 0.14em;
@@ -585,35 +579,32 @@
   font-weight: 600;
 }
 
+/* Name */
 .about-hero h1 {
   margin-top: 10px;
   font-size: 2.7rem;
   letter-spacing: -0.03em;
-  position: relative;
-  display: inline-block;
 }
 
-.about-hero h1::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 40%;
-  height: 3px;
-  background: var(--blue-primary);
-  opacity: 0.35;
-  border-radius: 999px;
-}
-
-
+/* Lead */
 .about-hero p {
   margin-top: 14px;
   font-size: 1.05rem;
   line-height: 1.7;
-  opacity: 0.8;
+  opacity: 0.82;
 }
 
-/* Layout */
+/* Subtle line */
+.about-subtle {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/* =========================
+   LAYOUT
+========================= */
 
 .about-layout {
   display: grid;
@@ -621,31 +612,39 @@
   gap: 34px;
 }
 
-/* Cards */
+/* =========================
+   CARDS
+========================= */
 
 .about-card {
   background: linear-gradient(
     180deg,
-    rgba(30,43,255,0.03),
+    rgba(30,43,255,0.025),
     #ffffff
   );
+
   padding: 34px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Primary card refinement */
+.about-card.primary {
+  border-left: 3px solid var(--blue-primary);
+}
+
+/* Remove visual overload */
 .about-card.primary::before {
   content: "";
   display: block;
-  height: 4px;
-  width: 60px;
+  width: 40px;
+  height: 3px;
   background: var(--blue-primary);
-  border-radius: 2px;
+  border-radius: 999px;
   margin-bottom: 16px;
-}
-
-.about-card.primary {
-  border-left: 4px solid var(--blue-primary);
+  opacity: 0.7;
 }
 
 .about-card h3 {
@@ -661,16 +660,20 @@
 }
 
 /* CTA */
-
 .about-cta {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 12px;
   font-weight: 500;
   color: var(--blue-primary);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* Philosophy List */
+.about-cta:hover {
+  transform: translateX(4px);
+  opacity: 0.9;
+}
 
+/* Philosophy list */
 .about-list {
   list-style: none;
   padding: 0;
@@ -683,19 +686,34 @@
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
-/* Social Strip */
+/* Hover lift */
+@media (hover: hover) and (pointer: fine) {
+  .about-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+  }
+}
+
+/* =========================
+   SOCIAL STRIP
+========================= */
 
 .about-social {
   margin-top: 80px;
   padding-top: 32px;
+
   display: flex;
   gap: 22px;
   flex-wrap: wrap;
+
   border-top: 1px solid rgba(0,0,0,0.08);
 }
 
 .about-social a {
-  position: relative;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .about-social a::after {
@@ -705,20 +723,17 @@
   opacity: 0.6;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .about-card {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .about-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
-  }
+.about-social a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
-/* Mobile */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 768px) {
+
   .about-hero h1 {
     font-size: 2.1rem;
   }
@@ -730,7 +745,12 @@
   .about-card {
     padding: 26px;
   }
+
+  .about-social {
+    gap: 16px;
+  }
 }
+
 
 /* =========================
    GITHUB ACTIVITY
