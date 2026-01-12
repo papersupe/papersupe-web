@@ -7,8 +7,14 @@ nav {
   top: 0;
   z-index: 100;
 
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(6px);
+  /* Gradient glass background */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.92),
+      rgba(245,247,255,0.88)
+    );
+  backdrop-filter: blur(10px) saturate(120%);
 
   display: flex;
   justify-content: space-between;
@@ -17,16 +23,39 @@ nav {
   padding: 18px 8%;
 
   transition:
-    box-shadow 0.25s ease,
-    background-color 0.25s ease,
-    transform 0.25s ease;
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
-/* Scroll elevation */
+/* Scroll elevation + depth */
 nav.scrolled {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.96),
+      rgba(238,242,255,0.9)
+    );
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08),
+    inset 0 -1px 0 rgba(30,43,255,0.08);
+}
+
+/* Ambient top glow */
+nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30,43,255,0.08),
+      transparent 40%,
+      transparent 60%,
+      rgba(30,43,255,0.08)
+    );
+  opacity: 0.35;
 }
 
 /* =========================
@@ -54,7 +83,7 @@ nav.scrolled {
   transform: translateY(-1px);
 }
 
-/* Brand underline */
+/* Gradient underline */
 .nav-brand::after {
   content: "";
   position: absolute;
@@ -62,8 +91,12 @@ nav.scrolled {
   bottom: -6px;
   width: 0%;
   height: 2px;
-  background: var(--blue-primary);
-  opacity: 0.4;
+  background: linear-gradient(
+    90deg,
+    var(--blue-primary),
+    #6f7bff
+  );
+  border-radius: 999px;
   transition: width 0.25s ease;
 }
 
@@ -96,7 +129,7 @@ nav.scrolled {
     transform 0.2s ease;
 }
 
-/* Underline indicator */
+/* Gradient underline */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -104,9 +137,13 @@ nav.scrolled {
   bottom: -6px;
   width: 0%;
   height: 2px;
-  background: var(--blue-primary);
+  background: linear-gradient(
+    90deg,
+    var(--blue-primary),
+    #6f7bff
+  );
+  border-radius: 999px;
   transition: width 0.25s ease;
-  transform-origin: left;
 }
 
 .nav-links a:hover {
@@ -119,7 +156,7 @@ nav.scrolled {
 }
 
 /* =========================
-   AGENT BUTTON
+   AGENT BUTTON (SIGNATURE)
 ========================= */
 
 .agent-btn {
@@ -127,7 +164,13 @@ nav.scrolled {
   height: 40px;
   margin-left: 32px;
 
-  background: var(--blue-primary);
+  background:
+    radial-gradient(
+      circle at top left,
+      #6f7bff,
+      var(--blue-primary)
+    );
+
   border-radius: 50%;
 
   display: flex;
@@ -139,28 +182,43 @@ nav.scrolled {
   font-size: 1rem;
   text-decoration: none;
 
-  box-shadow: 0 6px 20px rgba(30, 43, 255, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow:
+    0 8px 24px rgba(30,43,255,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.25);
 
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Breathing glow */
+.agent-btn {
   animation: agentPulse 4s ease-in-out infinite;
 }
 
 @keyframes agentPulse {
   0% {
-    box-shadow: 0 6px 20px rgba(30, 43, 255, 0.35);
+    box-shadow:
+      0 8px 24px rgba(30,43,255,0.35),
+      inset 0 0 0 1px rgba(255,255,255,0.25);
   }
   50% {
-    box-shadow: 0 10px 30px rgba(30, 43, 255, 0.45);
+    box-shadow:
+      0 14px 40px rgba(30,43,255,0.5),
+      inset 0 0 0 1px rgba(255,255,255,0.35);
   }
   100% {
-    box-shadow: 0 6px 20px rgba(30, 43, 255, 0.35);
+    box-shadow:
+      0 8px 24px rgba(30,43,255,0.35),
+      inset 0 0 0 1px rgba(255,255,255,0.25);
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
   .agent-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 34px rgba(30, 43, 255, 0.5);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+      0 18px 48px rgba(30,43,255,0.6);
   }
 }
 
@@ -197,11 +255,11 @@ nav.scrolled {
 }
 
 .nav-toggle:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .nav-toggle:active {
-  transform: scale(0.95);
+  transform: scale(0.94);
 }
 
 /* Mobile breakpoint */
@@ -215,25 +273,30 @@ nav.scrolled {
     font-size: 1.05rem;
   }
 
-  /* Dropdown */
   .nav-links {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
 
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(6px);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,0.98),
+        rgba(240,244,255,0.96)
+      );
+
+    backdrop-filter: blur(10px);
 
     flex-direction: column;
     align-items: flex-start;
 
-    padding: 20px 6%;
-    box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+    padding: 22px 6%;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.1);
 
     display: none;
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     transition: opacity 0.25s ease, transform 0.25s ease;
   }
 
@@ -256,7 +319,6 @@ nav.scrolled {
     transform: translateY(0);
   }
 
-  /* Hamburger active */
   .nav-toggle.active {
     transform: rotate(90deg);
   }
