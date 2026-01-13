@@ -44,7 +44,8 @@ nav.scrolled {
 /* Ambient top glow */
 nav::before {
   content: "";
-  position: absolute;
+  position: sticky;
+  isolation: isolate; /* creates safe stacking context */
   inset: 0;
   pointer-events: none;
   background:
