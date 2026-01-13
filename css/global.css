@@ -1,20 +1,53 @@
 /* =========================
-   GLOBAL RESET
+   GLOBAL RESET (SAFE)
 ========================= */
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   CSS VARIABLES (FOUNDATION)
+   (Non-breaking, optional use)
+========================= */
+
+:root {
+  --white: #ffffff;
+  --black: #0f172a;
+
+  --text-base: 1rem;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  --section-padding-desktop: clamp(64px, 6vw, 96px);
+  --section-padding-mobile: clamp(48px, 8vw, 64px);
+}
+
+/* =========================
+   BODY & TYPOGRAPHY
+========================= */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--white);
   color: var(--black);
   line-height: 1.6;
+
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* =========================
@@ -22,16 +55,27 @@ body {
 ========================= */
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
 img,
 svg,
 video {
+  display: block;
   max-width: 100%;
   height: auto;
-  display: block;
+}
+
+/* Prevent layout break from long strings */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
 /* =========================
@@ -39,12 +83,55 @@ video {
 ========================= */
 
 section {
-  padding: 80px 8%;
+  padding: var(--section-padding-desktop) 8%;
 }
 
 /* Mobile spacing */
 @media (max-width: 768px) {
   section {
-    padding: 60px 6%;
+    padding: var(--section-padding-mobile) 6%;
   }
+}
+
+/* =========================
+   ACCESSIBILITY (SAFE)
+========================= */
+
+/* Keyboard focus only */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================
+   SELECTION & SCROLL (POLISH)
+========================= */
+
+::selection {
+  background: rgba(99, 102, 241, 0.2); /* subtle indigo */
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
 }
