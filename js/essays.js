@@ -2,12 +2,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('essays');
   if (!container) return;
 
-  // Skeleton loading (perceived performance)
   container.innerHTML = `<p style="opacity:0.6">Loading essays…</p>`;
 
   const rssUrl = encodeURIComponent(
     'https://medium.com/feed/@abhiverse01'
   );
+
+  const CACHE_KEY = 'medium_essays_cache';
+  const CACHE_TIME = 1000 * 60 * 10; // 10 minutes
+
+  const cached = sessionStorage.getItem(CACHE_KEY);
+  if (cached) {
+    const { timestamp, items } = JSON.parse(cached);
+    if (Date.now() - timestamp < CACHE_TIME) {
+      renderEssays(items, container);
+      return;
+    }
+  }
 
   fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`)
     .then(res => res.json())
@@ -17,38 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      container.innerHTML = ''; // clear skeleton
+      sessionStorage.setItem(
+        CACHE_KEY,
+        JSON.stringify({
+          timestamp: Date.now(),
+          items: data.items.slice(0, 6)
+        })
+      );
 
-      data.items.slice(0, 6).forEach(item => {
-        const card = document.createElement('article');
-        card.className = 'essay-card';
-
-        const description = truncate(stripHtml(item.description), 180);
-        const date = item.pubDate
-          ? new Date(item.pubDate).toLocaleDateString(undefined, {
-              year: 'numeric',
-              month: 'short'
-            })
-          : '';
-
-        card.innerHTML = `
-          <span class="essay-meta">Medium · ${date}</span>
-          <h3>${item.title}</h3>
-          <p>${description}</p>
-          <a href="${item.link}" target="_blank" rel="noopener">
-            Read on Medium →
-          </a>
-        `;
-
-        // Click anywhere on card
-        card.addEventListener('click', e => {
-          if (e.target.tagName !== 'A') {
-            window.open(item.link, '_blank', 'noopener');
-          }
-        });
-
-        container.appendChild(card);
-      });
+      renderEssays(data.items.slice(0, 6), container);
     })
     .catch(err => {
       console.error('Medium RSS error:', err);
@@ -57,7 +45,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/* Utils */
+/* ---------- Rendering ---------- */
+
+function renderEssays(items, container) {
+  container.innerHTML = '';
+
+  items.forEach(item => {
+    const card = document.createElement('article');
+    card.className = 'essay-card';
+    card.setAttribute('role', 'link');
+    card.setAttribute('tabindex', '0');
+
+    const description = truncate(stripHtml(item.description), 180);
+    const date = item.pubDate
+      ? new Date(item.pubDate).toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'short'
+        })
+      : '';
+
+    card.innerHTML = `
+      <span class="essay-meta">Medium · ${date}</span>
+      <h3>${item.title}</h3>
+      <p>${description}</p>
+      <a href="${item.link}" target="_blank" rel="noopener">
+        Read on Medium →
+      </a>
+    `;
+
+    const openLink = () =>
+      window.open(item.link, '_blank', 'noopener');
+
+    card.addEventListener('click', e => {
+      if (!e.target.closest('a')) openLink();
+    });
+
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter') openLink();
+    });
+
+    container.appendChild(card);
+  });
+}
+
+/* ---------- Utils ---------- */
 
 function stripHtml(html) {
   const div = document.createElement('div');
